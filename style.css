@@ -3,6 +3,7 @@
     src: url('path/to/SkySansW01-LightSmallCaps.ttf') format('truetype');
 }
 
+
 body {
     margin: 0;
     padding: 10px;
@@ -40,7 +41,101 @@ nav {
     cursor: pointer;
     width: 12%;
     margin-left: 2%;
+    transition: transform 1s;
 }
+
+.logo:hover {
+    -ms-transform: scale(1.1); /* IE 9 */
+    -webkit-transform: scale(1.1); /* Safari 3-8 */
+    transform: scale(1.1); 
+  }
+
+@media (max-width: 1024px) {
+  .nav-button {
+      font-size: 1.2rem;
+  }
+
+  .logo {
+      width: 15%;
+  }
+}
+
+@media (max-width: 600px) {
+  .nav-button {
+      font-size: 1rem;
+  }
+
+  .logo {
+      width: 18%;
+  }
+}
+
+/* .content {
+    background-color: rgb(49, 66, 84);
+    width: 97%;
+    height: 97%;
+}
+
+.carousel {
+    position: relative;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+    height: 100%;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(13, 130px);
+    background-color: rgb(49, 66, 84);
+    grid-column: auto;
+    grid-row: auto;
+}
+
+.carousel__slides {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    width: 100%;
+    height: 100%;
+    grid-column: 2 / 12;
+    grid-row: 1 / 11;
+}
+
+.carousel__slide {
+    position: absolute;
+    opacity: 0;
+    transition: opacity 1s; 
+    flex: 0 0 100%;
+    height: 100%;
+}
+
+.carousel__slide.active {
+    opacity: 1;
+}
+
+.carousel__slide img {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel__control {
+    position: absolute;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+    user-select: none;
+}
+
+.carousel__control--backward {
+    left: 10px;
+}
+
+.carousel__control--forward {
+    right: 10px;
+} */
 
 .content {
     background-color: rgb(49, 66, 84);
@@ -65,12 +160,26 @@ nav {
 .carousel__slides {
     position: relative;
     display: flex;
-    align-items: center;  /* Add this line to vertically center the images */
-    justify-content: center;  /* Add this line to horizontally center the images */
+    align-items: center;
+    justify-content: center; 
     width: 100%;
     height: 100%;
     grid-column: 2 / 12;
     grid-row: 1 / 11;
+}
+
+
+@media (max-width: 600px) {
+    .carousel {
+        grid-template-columns: 1fr;
+        grid-row-gap: 20px;
+        grid-template-rows: repeat(2, 300px);
+    }
+
+    .carousel__slides {
+        grid-column: 1 / -1;
+        grid-row: 1 / 3;
+    }
 }
 
 .carousel__slide {
@@ -92,6 +201,7 @@ nav {
 }
 
 .carousel__control {
+    grid-row: 5 / 7;
     position: absolute;
     background: none;
     border: none;
@@ -109,6 +219,19 @@ nav {
     right: 10px;
 }
 
+@media (max-width: 1024px) {
+    .carousel__control {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .carousel__control {
+        font-size: 1.2rem;
+    }
+}
+
+
 .gallery-container {
     display: grid;
     grid-template-columns: repeat(14, 1fr);
@@ -118,7 +241,7 @@ nav {
 
 hr.solid {
     margin-top: 10%;
-    border-top: 3px solid white;
+    border-top: 0.3vw solid white; /* Adjust this value as needed */
     width: 80%;
     position: relative;
     overflow: visible; 
@@ -129,13 +252,28 @@ hr.solid::after {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    top: -50%;
-    width: 300px; /* Adjust to match your logo's width */
-    height: 300px; /* Adjust to match your logo's height */
-    background-image: url('logosinletras.png'); /* Assuming this file is in the same directory as your CSS */
+    width: 300px; /* Adjust this value as needed */
+    height: 300px; /* Adjust this value as needed */
+    background-image: url('logosinletras.png');
     background-size: cover;
     background-repeat: no-repeat;
 }
+
+
+@media (max-width: 600px) {
+    hr.solid::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px; /* Adjust to match your logo's width */
+        height: 100px; /* Adjust to match your logo's height */
+        background-image: url('logosinletras.png'); /* Assuming this file is in the same directory as your CSS */
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+}
+    
 
 .cont-1 {
     display: grid;
@@ -183,11 +321,13 @@ hr.solid::after {
     align-content: center;
     letter-spacing: 2px;
     padding-bottom: 10%;
+    font-size: 2vh;
 }
 
 .second-text p {
     text-align: center;
     padding-bottom: 5%;
+
 }
 
 .bio-pic {
@@ -203,11 +343,22 @@ hr.solid::after {
 
 .bio-pic img {
     display: flex;
-    width: 60%;
+    width: 70vh;
     height: 70vh;
     align-content: center;
     justify-content: center;
 }
+
+@media (max-width: 900px) {
+    .bio-pic img {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        align-content: center;
+        justify-content: center;
+    }
+}
+    
 
 .map {
     display: flex;
@@ -215,8 +366,19 @@ hr.solid::after {
     justify-content: center;
     height: 70vh;
     padding-bottom: 10%;
+}
+
+#map{
+    transition: transform 1s;
     cursor: pointer;
 }
+
+#map:hover {
+    -ms-transform: scale(1.25); /* IE 9 */
+    -webkit-transform: scale(1.25); /* Safari 3-8 */
+    transform: scale(1.25); 
+  }
+
 
 .contact-form {
     display: flex;
@@ -227,15 +389,39 @@ hr.solid::after {
     padding: 10px;
     color: white;
     padding-bottom: 10%;
+    width: 80%; /* adjust as needed */
+    max-width: 800px; /* adjust as needed */
+    margin: auto; /* centers the form horizontally */
+}
+
+
+#contactForm {
     width: 100%;
 }
 
-.contact-form input[type="text"], .contact-form input[type="email"], .contact-form textarea, .contact-form input[type="number"] {
+#contactForm h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    font-weight: lighter;
+}
 
+.contact-form input[type="text"], 
+.contact-form input[type="email"], 
+.contact-form textarea, 
+.contact-form input[type="number"] {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
+    box-sizing: border-box;  /* ensures padding doesn't increase width */
+} 
+
+
+
+.contact-form textarea {
+    min-height: 200px; /* adjust as needed */
 }
+
 
 .contact-form button[type="submit"] {
     background-color: white;
@@ -275,13 +461,37 @@ hr.solid::after {
 }
 
 #myList li {
-    display: inline-block;  /* Change the display property to inline-block */
+    display: grid;  /* Change the display property to inline-block */
     cursor: pointer;
     color: white;
     font-size: 1rem;
-    padding: 10px;
+    padding: 12px;
     justify-content: center;
 }
+
+#myList li:nth-child(1) {
+    justify-self: center;
+    align-items: center;
+}
+
+/* #myList li::before { content: '';
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    border-radius: 4px;
+    background-color: #18272F;
+    bottom: 0;
+    left: 0; 
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .3s ease-in-out;
+  }
+  
+  #myList li:hover::before {
+    transform-origin: left;
+    transform: scaleX(1);
+  } */
+
 
 #displayImage {
     display: grid;
@@ -291,8 +501,15 @@ hr.solid::after {
     height: 100%;
     object-fit: contain;
     background-color: rgb(49, 66, 84);
+    transition: transform 1s;
     
 }
+
+#displayImage:hover {
+    -ms-transform: scale(1.5); /* IE 9 */
+    -webkit-transform: scale(1.5); /* Safari 3-8 */
+    transform: scale(1.5); 
+  }
 
 ul {
     display: grid;

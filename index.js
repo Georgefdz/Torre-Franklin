@@ -21,6 +21,12 @@ window.addEventListener('DOMContentLoaded', (event) => {
         slides[currentIndex].classList.add('active');
     });
 
+    document.querySelector('#prev').addEventListener('touchslide', () => {
+        slides[currentIndex].classList.remove('active');
+        currentIndex = (currentIndex > 0) ? currentIndex - 1 : totalSlides - 1;
+        slides[currentIndex].classList.add('active');
+    });
+
     document.querySelector('#next').addEventListener('click', () => {
         slides[currentIndex].classList.remove('active');
         currentIndex = (currentIndex < totalSlides - 1) ? currentIndex + 1 : 0;
@@ -85,7 +91,8 @@ var mapImage = document.querySelector('.map');
 
 // add click event
 mapImage.addEventListener('click', function() {
-    window.location.href = "https://www.google.com/maps/place/Av.+Benjam%C3%ADn+Franklin+46,+Escand%C3%B3n+I+Secc,+Miguel+Hidalgo,+11800+Ciudad+de+M%C3%A9xico,+CDMX/@19.4068646,-99.1845503,17z/data=!3m1!4b1!4m6!3m5!1s0x85d1ff677bd17055:0x2ca6eb66f37140fb!8m2!3d19.4068596!4d-99.1819754!16s%2Fg%2F11c1yq3n1n?entry=ttu";
+    // window.location.href = "https://www.google.com/maps/place/Av.+Benjam%C3%ADn+Franklin+46,+Escand%C3%B3n+I+Secc,+Miguel+Hidalgo,+11800+Ciudad+de+M%C3%A9xico,+CDMX/@19.4068646,-99.1845503,17z/data=!3m1!4b1!4m6!3m5!1s0x85d1ff677bd17055:0x2ca6eb66f37140fb!8m2!3d19.4068596!4d-99.1819754!16s%2Fg%2F11c1yq3n1n?entry=ttu";
+    window.open("https://www.google.com/maps/place/Av.+Benjam%C3%ADn+Franklin+46,+Escand%C3%B3n+I+Secc,+Miguel+Hidalgo,+11800+Ciudad+de+M%C3%A9xico,+CDMX/@19.4068646,-99.1845503,17z/data=!3m1!4b1!4m6!3m5!1s0x85d1ff677bd17055:0x2ca6eb66f37140fb!8m2!3d19.4068596!4d-99.1819754!16s%2Fg%2F11c1yq3n1n?entry=ttu", "_blank");
 });
 
 // select the form
