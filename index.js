@@ -1,3 +1,13 @@
+// const express = require('express');
+// const app = express();
+// const PORT = 3000;
+// const mongoose = require('mongoose');
+
+// app.listen(process.env.PORT || PORT, () => {
+//     console.log(`Server running on port ${process.env.PORT}`)
+// })
+
+
 window.addEventListener('DOMContentLoaded', (event) => {
     let currentIndex = 0;
     const slides = document.querySelectorAll('.carousel__slide');
@@ -25,14 +35,36 @@ window.addEventListener('DOMContentLoaded', (event) => {
 window.addEventListener('DOMContentLoaded', (event) => {
     let listItems = document.querySelectorAll('#myList li');
     let displayImage = document.getElementById('displayImage');
+    let defaultImage = document.querySelector('.corte img');
   
+    // Show the default image
+    defaultImage.style.display = 'block';
+    displayImage.style.display = 'none';
+
     listItems.forEach((item) => {
       item.addEventListener('click', (event) => {
+        document.querySelector('.corte').style.gridrow = 2/3;
+        document.querySelector('.corte').style.border = 'none';
+        document.querySelector('.corte').style.background = 'none';
+        defaultImage.style.display = 'none'; // Hide the default image
         displayImage.src = item.dataset.imgSrc; // Sets the image source
         displayImage.style.display = 'block'; // Makes the image visible
       });
     });
-  });
+});
+
+
+// window.addEventListener('DOMContentLoaded', (event) => {
+//     let listItems = document.querySelectorAll('#myList li');
+//     let displayImage = document.getElementById('displayImage');
+  
+//     listItems.forEach((item) => {
+//       item.addEventListener('click', (event) => {
+//         displayImage.src = item.dataset.imgSrc; // Sets the image source
+//         displayImage.style.display = 'block'; // Makes the image visible
+//       });
+//     });
+//   });
 
 const homeBtn = document.getElementById('homeBtnn');
 const galleryBtn = document.getElementById('galleryBtn');
